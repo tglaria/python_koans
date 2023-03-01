@@ -17,8 +17,16 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    # DELETE 'PASS' AND WRITE THIS CODE
-    pass
+    sides = set([a, b, c])
+    if min(sides) <= 0 or 2 * max(sides) > sum([a, b, c]):
+        raise TriangleError
+    different = len(sides)
+    if different == 3:
+        return "scalene"
+    if different == 2:
+        return "isosceles"
+    return "equilateral"
+
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(Exception):
